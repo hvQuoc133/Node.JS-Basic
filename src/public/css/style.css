@@ -25,6 +25,7 @@ body {
 .topnav a:hover {
     background-color: #ddd;
     color: black;
+    cursor: pointer;
 }
 
 .topnav a.active {
@@ -58,4 +59,20 @@ td {
 
 tr:hover {
     background-color: #cccc;
+}
+
+tr:hover:not(.action-group) {
+    background-color: #cccc;
+}
+
+.action-group a {
+    border: none;
+    border-radius: 5px;
+    background-color: #cccc;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
 }

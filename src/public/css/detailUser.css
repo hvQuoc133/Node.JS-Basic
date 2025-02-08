@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.btn-back {
+    border: none;
+    border-radius: 5px;
+    background-color: #cccc;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
+}
