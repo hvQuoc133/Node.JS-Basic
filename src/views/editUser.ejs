@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <form>
+    <form action="/update/user" method="post">
         <fieldset>
-            <legend>Detail User:</legend>
+            <legend>Edit User:</legend>
             <% if (user) { %>
                 <label for="id">Id:</label>
                 <input type="hidden" id="id" name="id" value="<%= user.id %>"><br><br>
@@ -31,8 +31,10 @@
                 <% } else { %>
                     <p>User not found</p>
                     <% } %>
+
                         <div class="btn-container">
-                            <a class="btn-back" href="/">Back home</a>
+                            <button class="btn-back" type="submit">Save</button>
+                            <a class="btn-back" href="/">Cannel</a>
                         </div>
         </fieldset>
     </form>

@@ -8,6 +8,10 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+//Middleware handle post data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 //set up view engine
 configViewEngine(app);
 

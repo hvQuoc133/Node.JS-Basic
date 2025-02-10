@@ -12,6 +12,17 @@ fieldset {
     border-radius: 10px;
 }
 
+fieldset label {
+    display: inline-block;
+    width: 100px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
 .btn-back {
     border: none;
     border-radius: 5px;
@@ -22,4 +33,17 @@ fieldset {
     width: 100px;
     height: 30px;
     text-decoration: none;
+    color: red;
+    cursor: pointer;
+}
+
+.btn-back button {
+    border: none;
+    border-radius: 5px;
+    background-color: #cccc;
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
 }

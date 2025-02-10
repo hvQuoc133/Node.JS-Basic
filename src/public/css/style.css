@@ -47,7 +47,7 @@ body {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 70%;
 }
 
 th,
@@ -57,12 +57,11 @@ td {
     border-bottom: 1px solid #ddd;
 }
 
-tr:hover {
-    background-color: #cccc;
-}
-
-tr:hover:not(.action-group) {
-    background-color: #cccc;
+.action-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border: none;
 }
 
 .action-group a {
@@ -72,7 +71,58 @@ tr:hover:not(.action-group) {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    width: 70px;
+    height: 30px;
+    text-decoration: none;
+    color: red;
+}
+
+.btn-action {
+    border: none;
+    border-radius: 5px;
+    background-color: #cccc;
+    width: 70px;
+    height: 30px;
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.addNew-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+fieldset label {
+    display: inline-block;
+    width: 100px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-back {
+    border: none;
+    border-radius: 5px;
+    background-color: #cccc;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 30px;
     text-decoration: none;
+    color: red;
+    cursor: pointer;
 }
