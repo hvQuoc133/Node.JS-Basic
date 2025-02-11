@@ -77,18 +77,6 @@ td {
     color: red;
 }
 
-.btn-action {
-    border: none;
-    border-radius: 5px;
-    background-color: #cccc;
-    width: 70px;
-    height: 30px;
-    text-decoration: none;
-    color: red;
-    cursor: pointer;
-    font-size: 15px;
-}
-
 .addNew-group {
     display: flex;
     justify-content: center;

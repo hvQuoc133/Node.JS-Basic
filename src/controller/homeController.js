@@ -32,7 +32,7 @@ let getEditUser = async (req, res) => {
 
 let postUpdateUser = async (req, res) => {
     try {
-        const { firstName, lastName, email, address } = req.body;
+        const { id, firstName, lastName, email, address } = req.body;
         const connection = await connectDB();
 
         await connection.execute(
@@ -58,13 +58,22 @@ let postCreateUser = async (req, res) => {
             'INSERT INTO users ( firstName, lastName, email, address) VALUES (?, ?, ?, ?)',
             [firstName, lastName, email, address,]
         )
-
-        res.redirect('/')
+        res.redirect('/');
 
     } catch (err) {
         res.status(500).send({ error: err.message });
     }
-
 }
 
-module.exports = { getHomePage, getDetailUser, getEditUser, postUpdateUser, postCreateUser };
+let getDeleteUser = async (req, res) => {
+    try {
+        const connection = await connectDB();
+        const [users] = await connection.execute('DELETE FROM users WHERE id = ?', [req.params.userId]);
+        res.redirect('/');
+
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
+module.exports = { getHomePage, getDetailUser, getEditUser, postUpdateUser, postCreateUser, getDeleteUser };

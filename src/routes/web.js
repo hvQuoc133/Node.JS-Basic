@@ -15,6 +15,8 @@ const initwebRoutes = async (app) => {
 
     router.post('/create/user', homeController.postCreateUser);
 
+    router.get('/delete/user/:userId', homeController.getDeleteUser);
+
     return app.use("/", router);
 
 }
