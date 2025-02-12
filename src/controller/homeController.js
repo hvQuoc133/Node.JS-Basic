@@ -20,6 +20,25 @@ let getDetailUser = async (req, res) => {
     }
 }
 
+let postCreateUser = async (req, res) => {
+    try {
+        if (!req.body || !req.body.firstName || !req.body.lastName || !req.body.email || !req.body.address) {
+            return res.status(400).send({ message: 'Data to update can not be empty!' });
+        }
+        const { firstName, lastName, email, address } = req.body;
+        const connection = await connectDB();
+
+        await connection.execute(
+            'INSERT INTO users ( firstName, lastName, email, address) VALUES (?, ?, ?, ?)',
+            [firstName, lastName, email, address,]
+        )
+        res.redirect('/');
+
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
 let getEditUser = async (req, res) => {
     try {
         const connection = await connectDB();
@@ -41,25 +60,6 @@ let postUpdateUser = async (req, res) => {
         );
 
         res.redirect('/')
-    } catch (err) {
-        res.status(500).send({ error: err.message });
-    }
-}
-
-let postCreateUser = async (req, res) => {
-    try {
-        if (!req.body || !req.body.firstName || !req.body.lastName || !req.body.email || !req.body.address) {
-            return res.status(400).send({ message: 'Data to update can not be empty!' });
-        }
-        const { firstName, lastName, email, address } = req.body;
-        const connection = await connectDB();
-
-        await connection.execute(
-            'INSERT INTO users ( firstName, lastName, email, address) VALUES (?, ?, ?, ?)',
-            [firstName, lastName, email, address,]
-        )
-        res.redirect('/');
-
     } catch (err) {
         res.status(500).send({ error: err.message });
     }
