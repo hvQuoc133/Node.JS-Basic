@@ -7,6 +7,12 @@ const initwebRoutes = async (app) => {
 
     router.get('/', homeController.getHomePage);
 
+    router.get('/upload-file', homeController.getUploadFile);
+
+    router.post('/upload-profile-pic', homeController.postUploadFile);
+
+    router.post('/upload-multiple-images', homeController.postUploadMultipleFiles);
+
     router.get('/detail/user/:userId', homeController.getDetailUser);
 
     router.get('/edit/user/:userId', homeController.getEditUser);

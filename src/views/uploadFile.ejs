@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a class="active" href="upload-file">Upload</a>
+    </div>
+
+    <div class="upload-file-container">
+        <!-- Upload single file -->
+        <form method="post" action="/upload-profile-pic" enctype="multipart/form-data">
+            <div>
+                <label for="profile_pic">Avatar</label>
+                <input type="file" name="profile_pic" required>
+            </div>
+            <div>
+                <button class="btn-save" type="submit">Save File</button>
+            </div>
+        </form>
+
+        <!-- Upload multiple files -->
+        <form method="post" action="/upload-multiple-images" enctype="multipart/form-data">
+            <div>
+                <label for="profile_pic">Select multiple images</label>
+                <input type="file" name="profile_pic" multiple required>
+            </div>
+            <div>
+                <button class="btn-save" type="submit">Save Files</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

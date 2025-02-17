@@ -114,3 +114,42 @@ fieldset label {
     color: red;
     cursor: pointer;
 }
+
+.upload-file-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    gap: 20px;
+}
+
+.upload-file-container form {
+    background-color: #cccc;
+    padding: 20px;
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.upload-file-container label {
+    display: block;
+}
+
+.upload-file-container input {
+    cursor: pointer;
+    margin: 30px 0 30px 0;
+}
+
+.btn-save {
+    border: none;
+    border-radius: 5px;
+    background-color: #04AA6D;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
