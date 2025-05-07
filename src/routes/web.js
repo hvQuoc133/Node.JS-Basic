@@ -1,11 +1,13 @@
 import express from 'express';
 import homeController from '../controller/homeController';
+import authMiddleware from '../auth/authLogin';
 
 let router = express.Router();
 
 const initwebRoutes = async (app) => {
 
-    router.get('/', homeController.getHomePage);
+    //check middleware
+    router.get('/', authMiddleware, homeController.getHomePage);
 
     router.get('/upload-file', homeController.getUploadFile);
 
@@ -22,6 +24,10 @@ const initwebRoutes = async (app) => {
     router.post('/create/user', homeController.postCreateUser);
 
     router.get('/delete/user/:userId', homeController.getDeleteUser);
+
+    router.get('/login', homeController.getLogin);
+
+    router.post('/login', homeController.postLogin);
 
     return app.use("/", router);
 

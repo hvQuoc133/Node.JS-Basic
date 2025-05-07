@@ -1,5 +1,6 @@
 import connectDB from '../config/connectDB';
 import { upload } from '../config/multerConfig';
+import jwt from 'jsonwebtoken';
 
 let getHomePage = async (req, res) => {
     try {
@@ -127,7 +128,48 @@ let getDeleteUser = async (req, res) => {
     }
 }
 
+let getLogin = (req, res) => {
+    try {
+        return res.render('login.ejs');
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
+let postLogin = async (req, res) => {
+    try {
+        const { email } = req.body;
+        const connection = await connectDB();
+        const [users] = await connection.execute('SELECT * FROM users WHERE email = ?', [email]);
+
+        if (users.length === 0) {
+            return res.status(400).json({ message: 'Email not found' });
+        }
+
+        //get info user
+        const user = users[0];
+
+        //create token jwt
+        const token = jwt.sign(
+            { id: user.id, email: user.email }
+            , 'secret_key',
+            { expiresIn: '1h' }
+        );
+
+        //save token to cookie
+        res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
+
+        //redirect to home page
+        res.redirect('/');
+
+        // return res.status(200).json({ message: 'Login success', token });
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+};
+
 module.exports = {
     getHomePage, getDetailUser, getEditUser, postUpdateUser,
-    postCreateUser, getDeleteUser, getUploadFile, postUploadFile, postUploadMultipleFiles
+    postCreateUser, getDeleteUser, getUploadFile, postUploadFile,
+    postUploadMultipleFiles, getLogin, postLogin
 };
